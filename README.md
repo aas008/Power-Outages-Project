@@ -1,12 +1,11 @@
-# Power-Outages-Project
-This is a project for my Data Science Class at UCSD (DSC 80), where I work with a Power Outage dataset and make insightful predictions.
+# Power Outages Project
 
 
-# My Project Title
+# Power Outages Analysis and Prediction
 
 by Aanya Sharma & Nishant Begani
 
-***Note***: If you choose a repo name and title as uninspired as the ones here, I will be quite sad.
+This is a project for my Data Science Class at UCSD (DSC 80), where I work with a Power Outage dataset and make insightful predictions.
 
 ---
 
