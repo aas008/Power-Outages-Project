@@ -4,7 +4,7 @@ This is a project for my Data Science Class at UCSD (DSC 80), where I work with 
 
 # My Project Title
 
-by Suraj Rampure (rampure@ucsd.edu)
+by Aanya Sharma & Nishant Begani
 
 ***Note***: If you choose a repo name and title as uninspired as the ones here, I will be quite sad.
 
