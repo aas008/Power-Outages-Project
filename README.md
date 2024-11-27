@@ -1,4 +1,4 @@
-# # Decoding Power Grid Disruptions: A Data-Driven Analysis of Major U.S. Power Outages
+# Decoding Power Grid Disruptions: A Data-Driven Analysis of Major U.S. Power Outages
 
 by Aanya Sharma & Nishant Begani
 
