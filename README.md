@@ -16,12 +16,12 @@ The dataset, sourced from Purdue University's Laboratory for Advancing Sustainab
 
 | Column | Description |
 |--------|-------------|
-| ` 'YEAR' ` | Year an outage occurred |
-| ` 'MONTH' ` | Month an outage occurred |
-| ` 'U.S._STATE' ` | State the outage occurred in |
-| ` 'NERC.REGION' ` | North American Electric Reliability Corporation (NERC) regions involved in the outage event |
+| `'YEAR'` | Year an outage occurred |
+| `'MONTH'` | Month an outage occurred |
+| `'U.S._STATE'` | State the outage occurred in |
+| `'NERC.REGION'` | North American Electric Reliability Corporation (NERC) regions involved in the outage event |
 | `'CLIMATE.REGION'` | U.S. Climate regions as specified by National Centers for Environmental Information (9 Regions) |
-|` 'ANOMALY.LEVEL' `| Oceanic El Niño/La Niña (ONI) index referring to the cold and warm episodes by season |
+| `'ANOMALY.LEVEL'`| Oceanic El Niño/La Niña (ONI) index referring to the cold and warm episodes by season |
 | `'CAUSE.CATEGORY'` | Categories of all the events causing the major power outages |
 | `'OUTAGE.DURATION'` | Duration of outage events (in minutes) |
 | `'DEMAND.LOSS.MW'` | Amount of peak demand lost during an outage event (in Megawatt) [but in many cases, total demand is reported] |
