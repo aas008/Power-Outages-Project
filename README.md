@@ -1,6 +1,3 @@
-# Power Outages Project
-
-
 # Power Outages Analysis and Prediction
 
 by Aanya Sharma & Nishant Begani
