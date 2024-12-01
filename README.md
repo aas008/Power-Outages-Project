@@ -1,4 +1,4 @@
-# Data-Driver Analysis of Major U.S. Power Outages
+# Data-Driven Analysis of Major U.S. Power Outages
 
 by Aanya Sharma & Nishant Begani
 
@@ -38,12 +38,44 @@ Whether you're a utility company planning infrastructure improvements, an emerge
 
 ---
 
-## Cleaning 
+## Data Cleaning and Exploratory Data Analysis
 
----
-## EDA
+### Data Cleaning Process
 
-<iframe src="assets/10-80-enrollment.html" width=800 height=600 frameBorder=0></iframe>
+Our initial dataset required several preprocessing steps to prepare it for analysis. Here are the key cleaning steps we performed:
+
+1. **Date and Time Processing**
+   - Combined separate date and time columns into unified datetime objects
+   - Created two new columns: `OUTAGE.START` and `OUTAGE.RESTORATION` from their respective date and time components
+   - Removed the original separate date/time columns to avoid redundancy
+
+2. **Column Selection**
+   We focused on these key features for our analysis:
+   - Time-related: `YEAR`, `MONTH`, `OUTAGE.START`, `OUTAGE.RESTORATION`
+   - Location-based: `U.S._STATE`, `NERC.REGION`, `CLIMATE.REGION`
+   - Climate-related: `CLIMATE.CATEGORY`, `ANOMALY.LEVEL`
+   - Impact metrics: `CAUSE.CATEGORY`, `OUTAGE.DURATION`, `DEMAND.LOSS.MW`, `CUSTOMERS.AFFECTED`
+   - Economic indicators: `TOTAL.PRICE`, `TOTAL.SALES`, `TOTAL.CUSTOMERS`
+
+3. **Missing Value Treatment**
+   - Converted zero values to `NaN` in key metrics where zero was logically impossible:
+     - `OUTAGE.DURATION`
+     - `DEMAND.LOSS.MW`
+     - `CUSTOMERS.AFFECTED`
+   - This decision was made because major outages (affecting 50,000+ customers) would not have true zero values for these metrics
+
+4. **Data Type Conversions**
+   - Ensured numeric columns had proper data types using `pd.to_numeric`
+   - Applied this to columns such as:
+     - `ANOMALY.LEVEL`
+     - `OUTAGE.DURATION`
+     - `DEMAND.LOSS.MW`
+     - `CUSTOMERS.AFFECTED`
+     - `TOTAL.PRICE`
+     - `TOTAL.SALES`
+     - `TOTAL.CUSTOMERS`
+
+Here's a glimpse of our cleaned DataFrame:
 
 --- 
 
