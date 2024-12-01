@@ -1,4 +1,4 @@
-# Analysis of Major U.S. Power Outages
+# Data-Driver Analysis of Major U.S. Power Outages
 
 by Aanya Sharma & Nishant Begani
 
