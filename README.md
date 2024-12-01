@@ -92,9 +92,42 @@ Our univariate analysis revealed several interesting patterns in the power outag
 
 Looking at the distribution of outages across climate regions, we can see that the Northeast region experienced the highest number of major outages during this period, followed by the South and West regions. This suggests that certain geographic and climatic factors may contribute to outage frequency.
 
+<iframe
+  src="assets/outage_causes_dist.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+<iframe
+  src="assets/geographic_dist.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+-------- This is the research question one -------------
+
+<iframe
+  src="assets/climate_category_dist2.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+
 ### Bivariate Analysis
 
 To understand relationships between different factors affecting outages:
+
+<iframe
+  src="assets/duration_vs_anomaly.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+The relationship between outage duration and number of customers affected shows a positive correlation, though with significant variation. Notably, severe weather events (shown in blue) tend to result in both longer durations and higher numbers of affected customers.
 
 <iframe
   src="assets/duration_vs_customers.html"
@@ -103,7 +136,36 @@ To understand relationships between different factors affecting outages:
   frameborder="0"
 ></iframe>
 
-The relationship between outage duration and number of customers affected shows a positive correlation, though with significant variation. Notably, severe weather events (shown in blue) tend to result in both longer durations and higher numbers of affected customers.
+<iframe
+  src="assets/duration_by_climate.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+<iframe
+  src="assets/duration_by_month_climate.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+-------- This is the research question one -------------
+<iframe
+  src="assets/duration_by_climate_category.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+<iframe
+  src="assets/duration_by_month_climate_category.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+
 
 --- 
 
