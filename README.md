@@ -40,11 +40,14 @@ Whether you're a utility company planning infrastructure improvements, an emerge
 
 ---
 
-## Cleaning and EDA
+## Cleaning 
+
+---
+## EDA
 
 <iframe src="assets/10-80-enrollment.html" width=800 height=600 frameBorder=0></iframe>
 
----
+--- 
 
 ## Assessment of Missingness
 
