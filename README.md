@@ -1,8 +1,6 @@
-# Decoding Power Grid Disruptions: A Data-Driven Analysis of Major U.S. Power Outages
+# Analysis of Major U.S. Power Outages
 
 by Aanya Sharma & Nishant Begani
-
-This is a project for our Data Science Class at UCSD (DSC 80), where we work with a Power Outage dataset and do hypothesis testing and make insightful predictions.
 
 ---
 
