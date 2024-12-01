@@ -92,20 +92,6 @@ Our univariate analysis revealed several interesting patterns in the power outag
 
 Looking at the distribution of outages across climate regions, we can see that the Northeast region experienced the highest number of major outages during this period, followed by the South and West regions. This suggests that certain geographic and climatic factors may contribute to outage frequency.
 
-<iframe
-  src="assets/cause_category_dist.html"
-  width="800"
-  height="600"
-  frameborder="0"
-></iframe>
-
-<iframe
-  src="assets/geographic_dist.html"
-  width="800"
-  height="600"
-  frameborder="0"
-></iframe>
-
 ### Bivariate Analysis
 
 To understand relationships between different factors affecting outages:
