@@ -77,6 +77,34 @@ Our initial dataset required several preprocessing steps to prepare it for analy
 
 Here's a glimpse of our cleaned DataFrame:
 
+### EDA
+
+### Univariate Analysis
+
+Our univariate analysis revealed several interesting patterns in the power outage data:
+
+<iframe
+  src="assets/climate_region_dist.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+Looking at the distribution of outages across climate regions, we can see that the Northeast region experienced the highest number of major outages during this period, followed by the South and West regions. This suggests that certain geographic and climatic factors may contribute to outage frequency.
+
+### Bivariate Analysis
+
+To understand relationships between different factors affecting outages:
+
+<iframe
+  src="assets/duration_vs_customers.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+The relationship between outage duration and number of customers affected shows a positive correlation, though with significant variation. Notably, severe weather events (shown in blue) tend to result in both longer durations and higher numbers of affected customers.
+
 --- 
 
 ## Assessment of Missingness
