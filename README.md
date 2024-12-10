@@ -278,6 +278,9 @@ Based on our p-values, we reject both null hypotheses, concluding that the missi
 You planned to use:
 
 **Test Statistic**: The difference in means of outage durations between warm and cold episodes
+
+We chose the difference in means between warm and cold climate outage durations (mean_warm - mean_cold = -63.98 minutes) because it directly measures our quantity of interest (duration differences) and is interpretable in our original units of minutes. When comparing two numerical distributions with similar shapes like our outage durations, the difference in means is an appropriate measure that captures both magnitude and direction of any potential climate effect. 
+
 **Significance Level (α)**: 0.05
 
 **The permutation test was conducted to examine whether there is a difference in outage durations between warm and cold climate episodes.**
