@@ -188,6 +188,7 @@ The relationship between outage duration and number of customers affected shows 
 | cold               |                       2901.35 |                            1036 |                      6989.72 |                           158671 |
 | normal             |                       2666.11 |                             757 |                      5473.82 |                           190121 |
 | warm               |                       2837.37 |                             900 |                      6006.77 |                           181581 |
+
 --- 
 
 # Assessment of Missingness
