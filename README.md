@@ -301,7 +301,7 @@ However, it's important to note that:
 - The presence of extreme outliers in both categories suggests that particularly long outages can occur regardless of climate category
 
 <iframe
-  src="assets/hypothesis_permutation.html"
+  src="assets/hypothesis_histogram.html"
   width="800"
   height="600"
   frameborder="0"
