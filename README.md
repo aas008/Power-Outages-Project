@@ -4,7 +4,7 @@ by Aanya Sharma & Nishant Begani
 
 ---
 
-## Introduction
+# Introduction
 
 What happens when the lights go out for over 50,000 people at once? Between January 2000 and July 2016, the United States experienced numerous major power outages that significantly impacted communities across the country. This analysis delves into a comprehensive dataset from the Department of Energy that tracks these major disruptions, defined as outages affecting at least 50,000 customers or causing an unplanned loss of at least 300 megawatts of energy.
 
@@ -38,9 +38,9 @@ Whether you're a utility company planning infrastructure improvements, an emerge
 
 ---
 
-## Data Cleaning and Exploratory Data Analysis
+# Data Cleaning and Exploratory Data Analysis
 
-### Data Cleaning Process
+## Data Cleaning Process
 
 Our initial dataset required several preprocessing steps to prepare it for analysis. Here are the key cleaning steps we performed:
 
@@ -77,7 +77,7 @@ Our initial dataset required several preprocessing steps to prepare it for analy
 
 Here's a glimpse of our cleaned DataFrame:
 
-### EDA
+## EDA
 
 ### Univariate Analysis
 
@@ -167,10 +167,9 @@ The relationship between outage duration and number of customers affected shows 
 
 --- 
 
-## Assessment of Missingness
+# Assessment of Missingness
 
-
-### NMAR Analysis 
+## NMAR Analysis 
 
 In our examination of power outage data, we found that the column `CUSTOMERS.AFFECTED` (with 42.7% missing values) is likely NMAR (Not Missing At Random). This conclusion stems from understanding the data generation process rather than just the data itself:
 
@@ -185,13 +184,13 @@ To potentially make this column MAR (Missing At Random), we would need additiona
 2. Emergency response protocols for different types of outages
 3. Historical reporting compliance records
 
-### Missisgness Dependency 
+## Missisgness Dependency 
 
 We investigated the missingness patterns in our dataset, focusing on the `CUSTOMERS.AFFECTED` column which shows substantial missingness (42.7%). Our analysis tested whether this missingness depends on other variables in the dataset.
 
 We conducted a thorough analysis of missingness patterns in our dataset, particularly focusing on the relationships between different variables. Our analysis revealed:
 
-#### 1. **Highest Missing Percentages:**
+### 1. **Highest Missing Percentages:**
 
 To understand our missingness analysis, let's first look at the overall missingness patterns in our dataset:
 
@@ -211,8 +210,7 @@ To understand our missingness analysis, let's first look at the overall missingn
 
 These visualizations show that `DEMAND.LOSS.MW` (58.74%) and `CUSTOMERS.AFFECTED` (42.7%) have the highest rates of missing values, while most other variables have very low missingness rates (< 10%).
 
-
-#### 2. **Missingness Dependency Tests**
+### 2. **Missingness Dependency Tests**
 
 We performed permutation tests to understand what factors the missingness of `CUSTOMERS.AFFECTED` depends on. Our analysis revealed:
 
@@ -235,12 +233,11 @@ We performed permutation tests to understand what factors the missingness of `CU
   frameborder="0"
 ></iframe>
 
-   - **P-value**: 0.0010 (< 0.05)
+  - **P-value**: 0.0010 (< 0.05)
 
-   The permutation test visualization shows our observed test statistic (1243.53) is far from what we would expect under the null hypothesis, providing strong evidence for dependency. The distribution plots further illustrate how outage durations differ between cases where customer counts are missing versus reported.
+  The permutation test visualization shows our observed test statistic (1243.53) is far from what we would expect under the null hypothesis, providing strong evidence for dependency. The distribution plots further illustrate how outage durations differ between cases where customer counts are missing versus reported.
 
-   - **Conclusion**: We reject the null hypothesis; the missingness of CUSTOMERS.AFFECTED depends on OUTAGE.DURATION
-  
+  - **Conclusion**: We reject the null hypothesis; the missingness of CUSTOMERS.AFFECTED depends on OUTAGE.DURATION
 
 **Dependency on MONTH**:
    - **Null Hypothesis**: The distribution of months is the same whether CUSTOMERS.AFFECTED is missing or not
@@ -257,7 +254,7 @@ Based on our p-values, we reject both null hypotheses, concluding that the missi
 
 ---
 
-## Hypothesis Testing
+# Hypothesis Testing
 
 **Null Hypothesis (H₀)**: There is no difference in the average outage duration between warm and cold climate episodes (any observed differences are due to random chance)
 **Alternative Hypothesis (H₁**): There is a significant difference in the average outage duration between warm and cold climate episodes
@@ -311,18 +308,18 @@ The overlapping histograms show the probability density for each climate categor
 
 ---
 
-## Framing a Prediction Problem 
+# Framing a Prediction Problem 
 
-#### Prediction Problem and Type
+### Prediction Problem and Type
 The task is to predict the duration of a power outage, measured in minutes, using information available at the start of the outage. This is a regression problem because the target variable, **OUTAGE.DURATION**, is a continuous numerical value.
 
-#### Response Variable
+### Response Variable
 The response variable is **OUTAGE.DURATION**, chosen because it is critical for emergency response planning and resource allocation. Accurately predicting the duration of an outage enables utility companies to optimize their operations and helps communities and emergency services prepare more effectively for extended outages.
 
-#### Evaluation Metric
+### Evaluation Metric
 The model will be evaluated using **Root Mean Square Error (RMSE)**. RMSE is appropriate because it penalizes large errors more heavily, which is crucial for this application. For instance, underestimating a 24-hour outage as 1 hour is far more problematic than a slight overestimate of a shorter outage. Additionally, RMSE is expressed in minutes, making the results intuitive and directly comparable to the target variable.
 
-#### Features at the Time of Prediction
+### Features at the Time of Prediction
 The model uses only features that are realistically available at the time an outage begins. These include:  
 
 - **Temporal Information:** YEAR, MONTH  
@@ -333,7 +330,7 @@ The model uses only features that are realistically available at the time an out
 
 These inputs ensure the predictions are actionable in real-time.
 
-#### Features Excluded from Prediction
+### Features Excluded from Prediction
 The model excludes variables that are either unknown or unavailable at the time of prediction, such as:  
 
 - **OUTAGE.RESTORATION:** Directly determines outage duration but is unknown when the outage begins.  
@@ -341,3 +338,11 @@ The model excludes variables that are either unknown or unavailable at the time 
 - **CUSTOMERS.AFFECTED:** Known only after assessing the outage's impact.  
 
 By adhering to these constraints, the model remains practical and realistic for deployment.
+
+---
+
+# Baseline Model 
+
+---
+
+# Final Model
