@@ -202,7 +202,6 @@ To understand our missingness analysis, let's first look at the overall missingn
   frameborder="0"
 ></iframe>
 
-
 <iframe
   src="assets/missingness_bars.html"
   width="800"
@@ -260,5 +259,33 @@ Based on our p-values, we reject both null hypotheses, concluding that the missi
 
 ## Hypothesis Testing
 
+**Null Hypothesis (H₀)**: There is no difference in the average outage duration between warm and cold climate episodes (any observed differences are due to random chance)
+**Alternative Hypothesis (H₁**): There is a significant difference in the average outage duration between warm and cold climate episodes
+You planned to use:
+
+**Test Statistic**: The difference in means of outage durations between warm and cold episodes
+**Significance Level (α)**: 0.05
+
+
+<iframe
+  src="assets/hypothesis_distribution.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+<iframe
+  src="assets/hypothesis_boxplot.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+<iframe
+  src="assets/hypothesis_permutation.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 ---
