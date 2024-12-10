@@ -165,13 +165,7 @@ The relationship between outage duration and number of customers affected shows 
   frameborder="0"
 ></iframe>
 
-| U.S._STATE   | NERC.REGION   | CAUSE.CATEGORY     |   OUTAGE.DURATION |   CUSTOMERS.AFFECTED | OUTAGE.START        |
-|:-------------|:--------------|:-------------------|------------------:|---------------------:|:--------------------|
-| Minnesota    | MRO           | severe weather     |              3060 |                70000 | 2011-07-01 17:00:00 |
-| Minnesota    | MRO           | intentional attack |                 1 |                  nan | 2014-05-11 18:38:00 |
-| Minnesota    | MRO           | severe weather     |              3000 |                70000 | 2010-10-26 20:00:00 |
-| Minnesota    | MRO           | severe weather     |              2550 |                68200 | 2012-06-19 04:30:00 |
-| Minnesota    | MRO           | severe weather     |              1740 |               250000 | 2015-07-18 02:00:00 |
+| Month     |   OUTAGE.DURATION |   CUSTOMERS.AFFECTED |\n|:----------|------------------:|---------------------:|\n| April     |           1536.95 |               127153 |\n| August    |           2564.34 |               250718 |\n| December  |           3355.93 |               169397 |\n| February  |           2636.98 |               153526 |\n| January   |           3786.53 |               240046 |\n| July      |           2324.03 |               123329 |\n| June      |           2059.11 |               134008 |\n| March     |           3528.67 |               132655 |\n| May       |           2187.59 |               178815 |\n| November  |           1806.71 |               129511 |\n| October   |           3739.43 |               223333 |\n| September |           4594.14 |               315566 |
 
 
 --- 
