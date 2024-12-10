@@ -166,7 +166,7 @@ The relationship between outage duration and number of customers affected shows 
 ></iframe>
 
 <iframe
-  src="assets/monthy_aggs.html"
+  src="assets/monthly_aggs.html"
   width="1000"
   height="600"
   frameborder="0"
