@@ -88,7 +88,7 @@ Here's a glimpse of our cleaned DataFrame:
 
 ## EDA
 
-### Univariate Analysis
+### **Univariate Analysis**
 
 Our univariate analysis revealed several interesting patterns in the power outage data:
 
@@ -115,7 +115,7 @@ Looking at the distribution of outages across climate regions, we can see that t
   frameborder="0"
 ></iframe>
 
-### Bivariate Analysis
+### **Bivariate Analysis**
 
 To understand relationships between different factors affecting outages:
 
@@ -142,7 +142,7 @@ The relationship between outage duration and number of customers affected shows 
   frameborder="0"
 ></iframe>
 
-### Interesting Aggregates 
+### **Interesting Aggregates**
 
 | Month     |   OUTAGE.DURATION |   CUSTOMERS.AFFECTED |
 |:----------|------------------:|---------------------:|
