@@ -85,8 +85,8 @@ Our univariate analysis revealed several interesting patterns in the power outag
 
 <iframe
   src="assets/climate_region_dist.html"
-  width="800"
-  height="600"
+  width="640"
+  height="401"
   frameborder="0"
 ></iframe>
 
@@ -94,15 +94,15 @@ Looking at the distribution of outages across climate regions, we can see that t
 
 <iframe
   src="assets/outage_causes_dist.html"
-  width="800"
-  height="600"
+  width="640"
+  height="401"
   frameborder="0"
 ></iframe>
 
 <iframe
   src="assets/geographic_dist_map.html"
-  width="800"
-  height="600"
+  width="640"
+  height="401"
   frameborder="0"
 ></iframe>
 
@@ -110,8 +110,8 @@ Looking at the distribution of outages across climate regions, we can see that t
 
 <iframe
   src="assets/climate_category_dist2.html"
-  width="800"
-  height="600"
+  width="640"
+  height="401"
   frameborder="0"
 ></iframe>
 
@@ -122,8 +122,8 @@ To understand relationships between different factors affecting outages:
 
 <iframe
   src="assets/duration_vs_anomaly.html"
-  width="800"
-  height="600"
+  width="640"
+  height="401"
   frameborder="0"
 ></iframe>
 
@@ -131,37 +131,37 @@ The relationship between outage duration and number of customers affected shows 
 
 <iframe
   src="assets/duration_vs_customers.html"
-  width="800"
-  height="600"
+  width="640"
+  height="401"
   frameborder="0"
 ></iframe>
 
 <iframe
   src="assets/duration_by_climate.html"
-  width="800"
-  height="600"
+  width="640"
+  height="401"
   frameborder="0"
 ></iframe>
 
 <iframe
   src="assets/duration_by_month_climate.html"
-  width="800"
-  height="600"
+  width="640"
+  height="401"
   frameborder="0"
 ></iframe>
 
 -------- This is the research question one -------------
 <iframe
   src="assets/duration_by_climate_category.html"
-  width="800"
-  height="600"
+  width="640"
+  height="401"
   frameborder="0"
 ></iframe>
 
 <iframe
   src="assets/duration_by_month_climate_category.html"
-  width="800"
-  height="600"
+  width="640"
+  height="401"
   frameborder="0"
 ></iframe>
 
@@ -195,14 +195,14 @@ We conducted a thorough analysis of missingness patterns in our dataset, particu
 To understand our missingness analysis, let's first look at the overall missingness patterns in our dataset:
 <iframe
   src="assets/missingness_heatmap.html"
-  width="800"
-  height="600"
+  width="640"
+  height="401"
   frameborder="0"
 ></iframe>
 <iframe
   src="assets/missingness_bars.html"
-  width="800"
-  height="600"
+  width="640"
+  height="401"
   frameborder="0"
 ></iframe>
 These visualizations show that `DEMAND.LOSS.MW` (58.74%) and `CUSTOMERS.AFFECTED` (42.7%) have the highest rates of missing values, while most other variables have very low missingness rates (< 10%).
@@ -217,14 +217,14 @@ We performed permutation tests to understand what factors the missingness of `CU
    - Test Statistic: Difference in means
 <iframe
   src="assets/missingness_duration.html"
-  width="800"
-  height="600"
+  width="640"
+  height="401"
   frameborder="0"
 ></iframe>
 <iframe
   src="assets/missingness_permutation.html"
-  width="800"
-  height="600"
+  width="640"
+  height="401"
   frameborder="0"
 ></iframe>
   - **P-value**: 0.0010 (< 0.05)
@@ -244,8 +244,6 @@ Based on our p-values, we reject both null hypotheses, concluding that the missi
 
  These findings suggest that the missingness in our customer impact data is not random but is systematically related to both the duration of outages and the time of year, which has important implications for our analysis of power outage patterns.
 
-
-
 ---
 
 # Hypothesis Testing
@@ -257,7 +255,6 @@ You planned to use:
 **Test Statistic**: The difference in means of outage durations between warm and cold episodes
 **Significance Level (α)**: 0.05
 
-
 **The permutation test was conducted to examine whether there is a difference in outage durations between warm and cold climate episodes.**
 
 **Our analysis showed:**
@@ -266,15 +263,15 @@ You planned to use:
 With a p-value of 0.9067, which is much larger than our significance level (α = 0.05), **we fail to reject the null hypothesis**
 <iframe
   src="assets/hypothesis_distribution.html"
-  width="800"
-  height="600"
+  width="640"
+  height="401"
   frameborder="0"
 ></iframe>
-The empirical distribution of simulated differences shows our observed difference falls well within the range we would expect due to random chance
+The empirical distribution of simulated differences shows our observed difference falls well within the range we would expect due to random chance. 
 <iframe
   src="assets/hypothesis_boxplot.html"
-  width="800"
-  height="600"
+  width="640"
+  height="401"
   frameborder="0"
 ></iframe>
 The box plots visually support this conclusion, showing similar distributions of outage durations between warm and cold climate episodes, with both categories having some extreme outliers
@@ -288,8 +285,8 @@ However, it's important to note that:
 - The presence of extreme outliers in both categories suggests that particularly long outages can occur regardless of climate category
 <iframe
   src="assets/hypothesis_histogram.html"
-  width="800"
-  height="600"
+  width="640"
+  height="401"
   frameborder="0"
 ></iframe>
 The overlapping histograms show the probability density for each climate category, making it easier to directly compare their distributions. We used semi-transparent bars so you can see where they overlap. We also normalized the histograms to show probabilities rather than raw counts, which makes the comparison more meaningful given that we might have different numbers of observations in each category.
