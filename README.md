@@ -165,8 +165,6 @@ The relationship between outage duration and number of customers affected shows 
   frameborder="0"
 ></iframe>
 
-
-
 --- 
 
 ## Assessment of Missingness
