@@ -195,14 +195,14 @@ We conducted a thorough analysis of missingness patterns in our dataset, particu
 To understand our missingness analysis, let's first look at the overall missingness patterns in our dataset:
 <iframe
   src="assets/missingness_heatmap.html"
-  width="640"
-  height="401"
+  width="800"
+  height="600"
   frameborder="0"
 ></iframe>
 <iframe
   src="assets/missingness_bars.html"
-  width="640"
-  height="401"
+  width="800"
+  height="600"
   frameborder="0"
 ></iframe>
 These visualizations show that `DEMAND.LOSS.MW` (58.74%) and `CUSTOMERS.AFFECTED` (42.7%) have the highest rates of missing values, while most other variables have very low missingness rates (< 10%).
@@ -217,7 +217,7 @@ We performed permutation tests to understand what factors the missingness of `CU
    - Test Statistic: Difference in means
 <iframe
   src="assets/missingness_duration.html"
-  width="700"
+  width="800"
   height="550"
   frameborder="0"
 ></iframe>
