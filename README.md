@@ -322,4 +322,8 @@ By adhering to these constraints, the model remains practical and realistic for 
 
 ---
 
-# Final Model
+# Final Model 
+
+---
+
+# Fairness Analysis
