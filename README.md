@@ -92,6 +92,8 @@ Here's a glimpse of our cleaned DataFrame:
 
 Our univariate analysis revealed several interesting patterns in the power outage data:
 
+Looking at the distribution of outages across climate regions, we can see that the Northeast region experienced the highest number of major outages during this period, followed by the South and West regions. This suggests that certain geographic and climatic factors may contribute to outage frequency.
+
 <iframe
   src="assets/climate_region_dist.html"
   width="640"
@@ -99,7 +101,7 @@ Our univariate analysis revealed several interesting patterns in the power outag
   frameborder="0"
 ></iframe>
 
-Looking at the distribution of outages across climate regions, we can see that the Northeast region experienced the highest number of major outages during this period, followed by the South and West regions. This suggests that certain geographic and climatic factors may contribute to outage frequency.
+Severe weather dominates as the primary cause with around 700 incidents, while intentional attacks rank second with approximately 400 cases. All other causes, including system disruptions and equipment failures, account for significantly fewer outages, indicating weather resilience should be a key focus for grid improvements.
 
 <iframe
   src="assets/climate_category_dist2.html"
@@ -119,6 +121,8 @@ Looking at the distribution of outages across climate regions, we can see that t
 
 To understand relationships between different factors affecting outages:
 
+Most outages cluster in the lower ranges (under 20,000 minutes and affecting fewer than 500,000 customers), but notable outliers extend up to 100,000 minutes and affect up to 3 million people. Severe weather events (shown in blue) tend to cause both longer durations and higher customer impact, appearing frequently among the most severe cases.
+
 <iframe
   src="assets/duration_vs_anomaly.html"
   width="640"
@@ -126,7 +130,7 @@ To understand relationships between different factors affecting outages:
   frameborder="0"
 ></iframe>
 
-The relationship between outage duration and number of customers affected shows a positive correlation, though with significant variation. Notably, severe weather events (shown in blue) tend to result in both longer durations and higher numbers of affected customers.
+While most cause categories show similar median durations, fuel supply emergencies produce the most extreme outliers (up to 100,000 minutes). Severe weather events consistently show longer durations with multiple outliers, while intentional attacks typically resolve more quickly, suggesting better response protocols for deliberate disruptions.
 
 <iframe
   src="assets/duration_by_climate_category.html"
@@ -134,6 +138,8 @@ The relationship between outage duration and number of customers affected shows 
   height="401"
   frameborder="0"
 ></iframe>
+
+Cold climate episodes show the highest mean outage duration (2,901 minutes) but affect fewer customers on average (1,586K) compared to normal conditions (2,666 minutes, 1,901K customers). This suggests that while cold weather events last longer, they typically impact smaller populations.
 
 <iframe
   src="assets/duration_by_month_climate_category.html"
@@ -144,20 +150,7 @@ The relationship between outage duration and number of customers affected shows 
 
 ### **Interesting Aggregates**
 
-| Month     |   OUTAGE.DURATION |   CUSTOMERS.AFFECTED |
-|:----------|------------------:|---------------------:|
-| April     |           1536.95 |               127153 |
-| August    |           2564.34 |               250718 |
-| December  |           3355.93 |               169397 |
-| February  |           2636.98 |               153526 |
-| January   |           3786.53 |               240046 |
-| July      |           2324.03 |               123329 |
-| June      |           2059.11 |               134008 |
-| March     |           3528.67 |               132655 |
-| May       |           2187.59 |               178815 |
-| November  |           1806.71 |               129511 |
-| October   |           3739.43 |               223333 |
-| September |           4594.14 |               315566 |
+Cold climate episodes show the highest mean outage duration (2,901 minutes) but affect fewer customers on average (1,586K) compared to normal conditions (2,666 minutes, 1,901K customers). This suggests that while cold weather events last longer, they typically impact smaller populations.
 
 
 | CLIMATE.CATEGORY   |   ('OUTAGE.DURATION', 'mean') |   ('OUTAGE.DURATION', 'median') |   ('OUTAGE.DURATION', 'std') |   ('CUSTOMERS.AFFECTED', 'mean') |
