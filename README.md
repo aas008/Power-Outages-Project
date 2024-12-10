@@ -217,14 +217,14 @@ We performed permutation tests to understand what factors the missingness of `CU
    - Test Statistic: Difference in means
 <iframe
   src="assets/missingness_duration.html"
-  width="640"
-  height="401"
+  width="700"
+  height="550"
   frameborder="0"
 ></iframe>
 <iframe
   src="assets/missingness_permutation.html"
-  width="640"
-  height="401"
+  width="700"
+  height="550"
   frameborder="0"
 ></iframe>
   - **P-value**: 0.0010 (< 0.05)
