@@ -279,7 +279,7 @@ You planned to use:
 
 **Test Statistic**: The difference in means of outage durations between warm and cold episodes
 
-We chose the difference in means between warm and cold climate outage durations (mean_warm - mean_cold = -63.98 minutes) because it directly measures our quantity of interest (duration differences) and is interpretable in our original units of minutes. When comparing two numerical distributions with similar shapes like our outage durations, the difference in means is an appropriate measure that captures both magnitude and direction of any potential climate effect. 
+We chose the difference in means between warm and cold climate outage durations (mean_warm - mean_cold = -63.98 minutes) because it directly measures our quantity of interest (duration differences) and is interpretable in our original units of minutes. When comparing two numerical distributions with similar shapes like our outage durations, the difference in means is an appropriate measure that captures both magnitude and direction of any potential climate effect while remaining easy to interpret in the context of power outages.
 
 **Significance Level (α)**: 0.05
 
