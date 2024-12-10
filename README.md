@@ -267,12 +267,21 @@ You planned to use:
 **Significance Level (α)**: 0.05
 
 
+**The permutation test was conducted to examine whether there is a difference in outage durations between warm and cold climate episodes.**
+
+**Our analysis showed:**
+
+**Observed difference:** On average, outages during warm episodes were about 64 minutes shorter than outages during cold episodes (observed difference = -63.98 minutes)
+With a p-value of 0.9067, which is much larger than our significance level (α = 0.05), **we fail to reject the null hypothesis**
+
 <iframe
   src="assets/hypothesis_distribution.html"
   width="800"
   height="600"
   frameborder="0"
 ></iframe>
+
+The empirical distribution of simulated differences shows our observed difference falls well within the range we would expect due to random chance
 
 <iframe
   src="assets/hypothesis_boxplot.html"
@@ -281,11 +290,17 @@ You planned to use:
   frameborder="0"
 ></iframe>
 
+The box plots visually support this conclusion, showing similar distributions of outage durations between warm and cold climate episodes, with both categories having some extreme outliers
+
+**This means the data does not provide sufficient evidence to conclude there is a significant difference in outage durations between warm and cold climate episodes.**
+
 <iframe
   src="assets/hypothesis_permutation.html"
   width="800"
   height="600"
   frameborder="0"
 ></iframe>
+
+The overlapping histograms show the probability density for each climate category, making it easier to directly compare their distributions. We used semi-transparent bars so you can see where they overlap. We also normalized the histograms to show probabilities rather than raw counts, which makes the comparison more meaningful given that we might have different numbers of observations in each category.
 
 ---
