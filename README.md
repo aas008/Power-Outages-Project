@@ -77,6 +77,15 @@ Our initial dataset required several preprocessing steps to prepare it for analy
 
 Here's a glimpse of our cleaned DataFrame:
 
+|   YEAR |   MONTH | U.S._STATE   | NERC.REGION   | CLIMATE.REGION     | CLIMATE.CATEGORY   |   ANOMALY.LEVEL | CAUSE.CATEGORY     | OUTAGE.START        | OUTAGE.RESTORATION   |   OUTAGE.DURATION |   DEMAND.LOSS.MW |   CUSTOMERS.AFFECTED |   TOTAL.PRICE |   TOTAL.SALES |   TOTAL.CUSTOMERS | Month   |
+|-------:|--------:|:-------------|:--------------|:-------------------|:-------------------|----------------:|:-------------------|:--------------------|:---------------------|------------------:|-----------------:|---------------------:|--------------:|--------------:|------------------:|:--------|
+|   2011 |       7 | Minnesota    | MRO           | East North Central | normal             |            -0.3 | severe weather     | 2011-07-01 17:00:00 | 2011-07-03 20:00:00  |              3060 |              nan |                70000 |          9.28 |   6.56252e+06 |       2.5957e+06  | July    |
+|   2014 |       5 | Minnesota    | MRO           | East North Central | normal             |            -0.1 | intentional attack | 2014-05-11 18:38:00 | 2014-05-11 18:39:00  |                 1 |              nan |                  nan |          9.28 |   5.28423e+06 |       2.64074e+06 | May     |
+|   2010 |      10 | Minnesota    | MRO           | East North Central | cold               |            -1.5 | severe weather     | 2010-10-26 20:00:00 | 2010-10-28 22:00:00  |              3000 |              nan |                70000 |          8.15 |   5.22212e+06 |       2.5869e+06  | October |
+|   2012 |       6 | Minnesota    | MRO           | East North Central | normal             |            -0.1 | severe weather     | 2012-06-19 04:30:00 | 2012-06-20 23:00:00  |              2550 |              nan |                68200 |          9.19 |   5.78706e+06 |       2.60681e+06 | June    |
+|   2015 |       7 | Minnesota    | MRO           | East North Central | warm               |             1.2 | severe weather     | 2015-07-18 02:00:00 | 2015-07-19 07:00:00  |              1740 |              250 |               250000 |         10.43 |   5.97034e+06 |       2.67353e+06 | July    |
+
+
 ## EDA
 
 ### Univariate Analysis
