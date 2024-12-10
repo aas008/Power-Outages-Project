@@ -165,40 +165,39 @@ The relationship between outage duration and number of customers affected shows 
   frameborder="0"
 ></iframe>
 
-Aggregated metrics by NERC Region:
-| NERC.REGION   |   OUTAGE.DURATION |   CUSTOMERS.AFFECTED |   DEMAND.LOSS.MW |
-|:--------------|------------------:|---------------------:|-----------------:|
-| ASCC          |            nan    |                14273 |            35    |
-| ECAR          |           5603.31 |               256354 |          1314.48 |
-| FRCC          |           4271.12 |               375007 |          1072.6  |
-| FRCC, SERC    |            372    |                  nan |           nan    |
-| HECO          |            895.33 |               126729 |           466.67 |
-| HI            |           1367    |               294000 |          1060    |
-| MRO           |           3001.81 |               107524 |           372.67 |
-| NPCC          |           3578.65 |               163089 |          1656.07 |
-| PR            |            174    |                62000 |           220    |
-| RFC           |           3767.79 |               156614 |           419.74 |
-| SERC          |           1765.29 |               114548 |           600.25 |
-| SPP           |           2783.57 |               219083 |           212    |
-| TRE           |           2988.24 |               251287 |           739.09 |
-| WECC          |           1578.27 |               191749 |           670.05 |
+### Aggregated metrics by NERC Region:
+| NERC.REGION | OUTAGE.DURATION | CUSTOMERS.AFFECTED | DEMAND.LOSS.MW |
+|:------------|---------------:|------------------:|---------------:|
+| ASCC        |            nan |             14273 |            35  |
+| ECAR        |        5603.31 |            256354 |        1314.48 |
+| FRCC        |        4271.12 |            375007 |        1072.60 |
+| FRCC, SERC  |          372.0 |               nan |            nan |
+| HECO        |         895.33 |            126729 |         466.67 |
+| HI          |        1367.00 |            294000 |        1060.00 |
+| MRO         |        3001.81 |            107524 |         372.67 |
+| NPCC        |        3578.65 |            163089 |        1656.07 |
+| PR          |         174.00 |             62000 |         220.00 |
+| RFC         |        3767.79 |            156614 |         419.74 |
+| SERC        |        1765.29 |            114548 |         600.25 |
+| SPP         |        2783.57 |            219083 |         212.00 |
+| TRE         |        2988.24 |            251287 |         739.09 |
+| WECC        |        1578.27 |            191749 |         670.05 |
 
-Monthly patterns:
-| Month     |   OUTAGE.DURATION |   CUSTOMERS.AFFECTED |
-|:----------|------------------:|---------------------:|
-| April     |           1536.95 |               127153 |
-| August    |           2564.34 |               250718 |
-| December  |           3355.93 |               169397 |
-| February  |           2636.98 |               153526 |
-| January   |           3786.53 |               240046 |
-| July      |           2324.03 |               123329 |
-| June      |           2059.11 |               134008 |
-| March     |           3528.67 |               132655 |
-| May       |           2187.59 |               178815 |
-| November  |           1806.71 |               129511 |
-| October   |           3739.43 |               223333 |
-| September |           4594.14 |               315566 |
-
+### Monthly patterns:
+| Month     | OUTAGE.DURATION | CUSTOMERS.AFFECTED |
+|:----------|---------------:|-----------------:|
+| April     |        1536.95 |           127153 |
+| August    |        2564.34 |           250718 |
+| December  |        3355.93 |           169397 |
+| February  |        2636.98 |           153526 |
+| January   |        3786.53 |           240046 |
+| July      |        2324.03 |           123329 |
+| June      |        2059.11 |           134008 |
+| March     |        3528.67 |           132655 |
+| May       |        2187.59 |           178815 |
+| November  |        1806.71 |           129511 |
+| October   |        3739.43 |           223333 |
+| September |        4594.14 |           315566 |
 --- 
 
 # Assessment of Missingness
