@@ -195,7 +195,7 @@ We conducted a thorough analysis of missingness patterns in our dataset, particu
 To understand our missingness analysis, let's first look at the overall missingness patterns in our dataset:
 <iframe
   src="assets/missingness_heatmap.html"
-  width="800"
+  width="1000"
   height="600"
   frameborder="0"
 ></iframe>
@@ -217,7 +217,7 @@ We performed permutation tests to understand what factors the missingness of `CU
    - Test Statistic: Difference in means
 <iframe
   src="assets/missingness_duration.html"
-  width="800"
+  width="1000"
   height="550"
   frameborder="0"
 ></iframe>
