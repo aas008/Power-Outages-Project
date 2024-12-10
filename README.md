@@ -100,7 +100,7 @@ Looking at the distribution of outages across climate regions, we can see that t
 ></iframe>
 
 <iframe
-  src="assets/geographic_dist.html"
+  src="assets/geographic_dist_map.html"
   width="800"
   height="600"
   frameborder="0"
