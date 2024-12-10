@@ -169,19 +169,92 @@ The relationship between outage duration and number of customers affected shows 
 
 ## Assessment of Missingness
 
-Here's what a Markdown table looks like. Note that the code for this table was generated _automatically_ from a DataFrame, using
 
-```py
-print(counts[['Quarter', 'Count']].head().to_markdown(index=False))
-```
+### NMAR Analysis 
 
-| Quarter     |   Count |
-|:------------|--------:|
-| Fall 2020   |       3 |
-| Winter 2021 |       2 |
-| Spring 2021 |       6 |
-| Summer 2021 |       4 |
-| Fall 2021   |      55 |
+In our examination of power outage data, we found that the column `CUSTOMERS.AFFECTED` (with 42.7% missing values) is likely NMAR (Not Missing At Random). This conclusion stems from understanding the data generation process rather than just the data itself:
+
+- The data comes from various utility companies across different states, each with their own reporting systems and capabilities
+- Missing customer counts might be due to:
+  - Limited tracking capabilities during major outages
+  - Different reporting standards across companies
+  - Emergency situations where customer tracking wasn't feasible
+
+To potentially make this column MAR (Missing At Random), we would need additional data about:
+1. Individual utility companies' reporting capabilities
+2. Emergency response protocols for different types of outages
+3. Historical reporting compliance records
+
+### Missisgness Dependency 
+
+We investigated the missingness patterns in our dataset, focusing on the `CUSTOMERS.AFFECTED` column which shows substantial missingness (42.7%). Our analysis tested whether this missingness depends on other variables in the dataset.
+
+We conducted a thorough analysis of missingness patterns in our dataset, particularly focusing on the relationships between different variables. Our analysis revealed:
+
+#### 1. **Highest Missing Percentages:**
+
+To understand our missingness analysis, let's first look at the overall missingness patterns in our dataset:
+
+<iframe
+  src="assets/missingness_heatmap.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+
+<iframe
+  src="assets/missingness_bars.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+These visualizations show that `DEMAND.LOSS.MW` (58.74%) and `CUSTOMERS.AFFECTED` (42.7%) have the highest rates of missing values, while most other variables have very low missingness rates (< 10%).
+
+
+#### 2. **Missingness Dependency Tests**
+
+We performed permutation tests to understand what factors the missingness of `CUSTOMERS.AFFECTED` depends on. Our analysis revealed:
+
+ **Dependency on OUTAGE.DURATION**:
+   - **Null Hypothesis**: The distribution of outage duration is the same whether CUSTOMERS.AFFECTED is missing or not
+   - **Alternative Hypothesis**: The distribution of outage duration differs based on whether CUSTOMERS.AFFECTED is missing
+   - Test Statistic: Difference in means
+
+<iframe
+  src="assets/missingness_duration.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+<iframe
+  src="assets/missingness_permutation.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+   - **P-value**: 0.0010 (< 0.05)
+
+   The permutation test visualization shows our observed test statistic (1243.53) is far from what we would expect under the null hypothesis, providing strong evidence for dependency. The distribution plots further illustrate how outage durations differ between cases where customer counts are missing versus reported.
+
+   - **Conclusion**: We reject the null hypothesis; the missingness of CUSTOMERS.AFFECTED depends on OUTAGE.DURATION
+  
+
+**Dependency on MONTH**:
+   - **Null Hypothesis**: The distribution of months is the same whether CUSTOMERS.AFFECTED is missing or not
+   - **Alternative Hypothesis**: The distribution of months differs based on whether CUSTOMERS.AFFECTED is missing
+   - **Test Statistic**: Difference in means
+   - **P-value**: 0.0000 (< 0.05)
+   - **Conclusion**: We reject the null hypothesis; the missingness of CUSTOMERS.AFFECTED also depends on MONTH
+
+Based on our p-values, we reject both null hypotheses, concluding that the missingness of CUSTOMERS.AFFECTED depends on both OUTAGE.DURATION and MONTH.
+
+ These findings suggest that the missingness in our customer impact data is not random but is systematically related to both the duration of outages and the time of year, which has important implications for our analysis of power outage patterns.
+
+
 
 ---
 
