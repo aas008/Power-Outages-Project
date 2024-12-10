@@ -182,6 +182,7 @@ The relationship between outage duration and number of customers affected shows 
 | October   |           3739.43 |               223333 |
 | September |           4594.14 |               315566 |
 
+
 Summary Statistics by Climate Category:
 | CLIMATE.CATEGORY   |   ('OUTAGE.DURATION', 'count') |   ('OUTAGE.DURATION', 'mean') |   ('OUTAGE.DURATION', 'median') |   ('OUTAGE.DURATION', 'std') |   ('CUSTOMERS.AFFECTED', 'mean') |
 |:-------------------|-------------------------------:|------------------------------:|--------------------------------:|-----------------------------:|---------------------------------:|
