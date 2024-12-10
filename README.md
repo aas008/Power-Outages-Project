@@ -267,8 +267,18 @@ We performed permutation tests to understand what factors the missingness of `CU
 
 Based on our p-values, we reject both null hypotheses, concluding that the missingness of CUSTOMERS.AFFECTED depends on both OUTAGE.DURATION and MONTH.
 
- These findings suggest that the missingness in our customer impact data is not random but is systematically related to both the duration of outages and the time of year, which has important implications for our analysis of power outage patterns.
+ Analysis of CUSTOMERS.AFFECTED missingness revealed one dependent and one independent relationship:
 
+**Dependent (MAR) - OUTAGE.DURATION:**
+The missingness of CUSTOMERS.AFFECTED depends on OUTAGE.DURATION (p-value = 0.0010 < 0.05). The distribution plots and permutation test results show that outages with missing customer counts tend to have significantly different durations compared to those with recorded customer counts, with an observed test statistic of 1243.53 being far from what we'd expect by random chance.
+
+**Dependent (MAR) - MONTH:**
+The missingness of CUSTOMERS.AFFECTED also depends on MONTH (p-value = 0.0000 < 0.05), indicating strong evidence against MCAR. This suggests that the likelihood of missing customer count data varies significantly with different months of the year, perhaps due to seasonal patterns in reporting practices or outage characteristics.
+
+**Independent (MCAR) - TOTAL.PRICE:**
+TOTAL.PRICE shows characteristics of MCAR with only 1.43% missing values. Since electricity prices are set through regulatory processes independent of outage reporting systems, and missing values show no systematic patterns, the missingness mechanism appears random and unrelated to outage characteristics.
+
+These findings help inform how we approach missing values in our analyses of power outage patterns.
 ---
 
 # Hypothesis Testing
@@ -279,7 +289,7 @@ You planned to use:
 
 **Test Statistic**: The difference in means of outage durations between warm and cold episodes
 
-**Reason for Choosing Test Statistic**: We chose the difference in means between warm and cold climate outage durations (mean_warm - mean_cold = -63.98 minutes) because it directly measures our quantity of interest (duration differences) and is interpretable in our original units of minutes. When comparing two numerical distributions with similar shapes like our outage durations, the difference in means is an appropriate measure that captures both magnitude and direction of any potential climate effect while remaining easy to interpret in the context of power outages.
+**Reason for Choosing Test Statistic**: We chose the difference in means between warm and cold climate outage durations because it directly measures our quantity of interest (duration differences) and is interpretable in our original units of minutes. When comparing two numerical distributions with similar shapes like our outage durations, the difference in means is an appropriate measure that captures both magnitude and direction of any potential climate effect while remaining easy to interpret in the context of power outages.
 
 **Significance Level (α)**: 0.05
 
