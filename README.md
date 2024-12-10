@@ -165,7 +165,20 @@ The relationship between outage duration and number of customers affected shows 
   frameborder="0"
 ></iframe>
 
-| Month     |   OUTAGE.DURATION |   CUSTOMERS.AFFECTED |\n|:----------|------------------:|---------------------:|\n| April     |           1536.95 |               127153 |\n| August    |           2564.34 |               250718 |\n| December  |           3355.93 |               169397 |\n| February  |           2636.98 |               153526 |\n| January   |           3786.53 |               240046 |\n| July      |           2324.03 |               123329 |\n| June      |           2059.11 |               134008 |\n| March     |           3528.67 |               132655 |\n| May       |           2187.59 |               178815 |\n| November  |           1806.71 |               129511 |\n| October   |           3739.43 |               223333 |\n| September |           4594.14 |               315566 |
+| Month     |   OUTAGE.DURATION |   CUSTOMERS.AFFECTED |
+|:----------|------------------:|---------------------:|
+| April     |           1536.95 |               127153 |
+| August    |           2564.34 |               250718 |
+| December  |           3355.93 |               169397 |
+| February  |           2636.98 |               153526 |
+| January   |           3786.53 |               240046 |
+| July      |           2324.03 |               123329 |
+| June      |           2059.11 |               134008 |
+| March     |           3528.67 |               132655 |
+| May       |           2187.59 |               178815 |
+| November  |           1806.71 |               129511 |
+| October   |           3739.43 |               223333 |
+| September |           4594.14 |               315566 |
 
 
 --- 
