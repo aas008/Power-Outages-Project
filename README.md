@@ -311,10 +311,10 @@ The overlapping histograms show the probability density for each climate categor
 # Framing a Prediction Problem 
 
 ### Prediction Problem and Type
-The task is to predict the duration of a power outage, measured in minutes, using information available at the start of the outage. This is a regression problem because the target variable, **OUTAGE.DURATION**, is a continuous numerical value.
+The task is to predict the duration of a power outage, measured in minutes, using information available at the start of the outage. This is a regression problem because the target variable, `OUTAGE.DURATION`, is a continuous numerical value.
 
 ### Response Variable
-The response variable is **OUTAGE.DURATION**, chosen because it is critical for emergency response planning and resource allocation. Accurately predicting the duration of an outage enables utility companies to optimize their operations and helps communities and emergency services prepare more effectively for extended outages.
+The response variable is `OUTAGE.DURATION`, chosen because it is critical for emergency response planning and resource allocation. Accurately predicting the duration of an outage enables utility companies to optimize their operations and helps communities and emergency services prepare more effectively for extended outages.
 
 ### Evaluation Metric
 The model will be evaluated using **Root Mean Square Error (RMSE)**. RMSE is appropriate because it penalizes large errors more heavily, which is crucial for this application. For instance, underestimating a 24-hour outage as 1 hour is far more problematic than a slight overestimate of a shorter outage. Additionally, RMSE is expressed in minutes, making the results intuitive and directly comparable to the target variable.
@@ -322,20 +322,20 @@ The model will be evaluated using **Root Mean Square Error (RMSE)**. RMSE is app
 ### Features at the Time of Prediction
 The model uses only features that are realistically available at the time an outage begins. These include:  
 
-- **Temporal Information:** YEAR, MONTH  
-- **Location Data:** U.S._STATE, NERC.REGION (grid infrastructure region)  
-- **Climate Context:** CLIMATE.REGION, CLIMATE.CATEGORY, ANOMALY.LEVEL  
-- **Cause Information:** CAUSE.CATEGORY (e.g., severe weather or equipment failure)  
-- **Market Conditions and Historical Data:** TOTAL.PRICE (electricity price), TOTAL.SALES (historical usage), TOTAL.CUSTOMERS (customer base size)  
+- **Temporal Information:** `YEAR`,` MONTH`  
+- **Location Data:** `U.S._STATE`, `NERC.REGION `(grid infrastructure region)  
+- **Climate Context:** `CLIMATE.REGION`, `CLIMATE.CATEGORY`, `ANOMALY.LEVEL`  
+- **Cause Information:** `CAUSE.CATEGORY` (e.g., severe weather or equipment failure)  
+- **Market Conditions and Historical Data:** `TOTAL.PRICE` (electricity price), TOTAL.SALES (historical usage), TOTAL.CUSTOMERS (customer base size)  
 
 These inputs ensure the predictions are actionable in real-time.
 
 ### Features Excluded from Prediction
 The model excludes variables that are either unknown or unavailable at the time of prediction, such as:  
 
-- **OUTAGE.RESTORATION:** Directly determines outage duration but is unknown when the outage begins.  
-- **DEMAND.LOSS.MW:** Requires post-outage assessment.  
-- **CUSTOMERS.AFFECTED:** Known only after assessing the outage's impact.  
+- `OUTAGE.RESTORATION`: Directly determines outage duration but is unknown when the outage begins.  
+- `DEMAND.LOSS.MW`: Requires post-outage assessment.  
+- `CUSTOMERS.AFFECTED`: Known only after assessing the outage's impact.  
 
 By adhering to these constraints, the model remains practical and realistic for deployment.
 
