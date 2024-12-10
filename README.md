@@ -183,14 +183,11 @@ The relationship between outage duration and number of customers affected shows 
 | September |           4594.14 |               315566 |
 
 
-Summary Statistics by Climate Category:
-
-
-| CLIMATE.CATEGORY | OUTAGE.DURATION COUNT | OUTAGE.DURATION MEAN | OUTAGE.DURATION MEDIAN | OUTAGE.DURATION STD | CUSTOMERS.AFFECTED MEAN |
-|:----------------|---------------------:|--------------------:|--------------------:|------------------:|--------------------:|
-| cold | 424 | 2901.35 | 1036 | 6989.72 | 158671 |
-| normal | 693 | 2666.11 | 757 | 5473.82 | 190121 |
-| warm | 281 | 2837.37 | 900 | 6006.77 | 178234 |
+| CLIMATE.CATEGORY   |   ('OUTAGE.DURATION', 'count') |   ('OUTAGE.DURATION', 'mean') |   ('OUTAGE.DURATION', 'median') |   ('OUTAGE.DURATION', 'std') |   ('CUSTOMERS.AFFECTED', 'mean') |
+|:-------------------|-------------------------------:|------------------------------:|--------------------------------:|-----------------------------:|---------------------------------:|
+| cold               |                            424 |                       2901.35 |                            1036 |                      6989.72 |                           158671 |
+| normal             |                            693 |                       2666.11 |                             757 |                      5473.82 |                           190121 |
+| warm               |                            281 |                       2837.37 |                             900 |                      6006.77 |                           181581 |
 --- 
 
 # Assessment of Missingness
