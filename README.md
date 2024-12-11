@@ -114,7 +114,7 @@ Here's a glimpse of our cleaned DataFrame:
 
 Our univariate analysis revealed several interesting patterns in the power outage data:
 
-Looking at the distribution of outages across climate regions, we can see that the Northeast region experienced the highest number of major outages during this period, followed by the South and West regions. This suggests that certain geographic and climatic factors may contribute to outage frequency.
+Looking at the **distribution of outages across climate regions**, we can see that the Northeast region experienced the highest number of major outages during this period, followed by the South and West regions. This suggests that **certain geographic and climatic factors may contribute to outage frequency**.
 
 <iframe
   src="assets/climate_region_dist.html"
@@ -123,7 +123,7 @@ Looking at the distribution of outages across climate regions, we can see that t
   frameborder="0"
 ></iframe>
 
-Severe weather dominates as the primary cause with around 700 incidents, while intentional attacks rank second with approximately 400 cases. All other causes, including system disruptions and equipment failures, account for significantly fewer outages, indicating weather resilience should be a key focus for grid improvements.
+**Severe weather dominates** as the primary cause with around 700 incidents, while **intentional attacks rank second** with approximately 400 cases. All other causes, including system disruptions and equipment failures, account for significantly fewer outages, **indicating weather resilience should be a key focus for grid improvements.**
 
 <iframe
   src="assets/climate_category_dist2.html"
@@ -132,7 +132,7 @@ Severe weather dominates as the primary cause with around 700 incidents, while i
   frameborder="0"
 ></iframe>
 
-The distribution of the number of outages by each U.S. state.
+The **distribution of the number of outages by each U.S. state.**
 <iframe
   src="assets/geographic_dist_map.html"
   width="1000"
@@ -144,7 +144,7 @@ The distribution of the number of outages by each U.S. state.
 
 To understand relationships between different factors affecting outages:
 
-Most outages cluster in the lower ranges (under 20,000 minutes and affecting fewer than 500,000 customers), but notable outliers extend up to 100,000 minutes and affect up to 3 million people. Severe weather events (shown in blue) tend to cause both longer durations and higher customer impact, appearing frequently among the most severe cases.
+Most **outages cluster in the lower ranges** (under 20,000 minutes and affecting fewer than 500,000 customers), but **notable outliers extend up to 100,000 minutes** and affect up to 3 million people. Severe weather events (shown in blue) tend to cause both longer durations and higher customer impact, appearing frequently among the most severe cases.
 
 <iframe
   src="assets/duration_vs_anomaly.html"
@@ -153,7 +153,7 @@ Most outages cluster in the lower ranges (under 20,000 minutes and affecting few
   frameborder="0"
 ></iframe>
 
-While most cause categories show similar median durations, fuel supply emergencies produce the most extreme outliers (up to 100,000 minutes). Severe weather events consistently show longer durations with multiple outliers, while intentional attacks typically resolve more quickly, suggesting better response protocols for deliberate disruptions.
+While most cause categories show similar median durations, **fuel supply emergencies produce the most extreme outliers** (up to 100,000 minutes). Severe weather events consistently show longer durations with multiple outliers, while intentional attacks typically resolve more quickly, suggesting **better response protocols for deliberate disruptions.**
 
 <iframe
   src="assets/duration_by_climate_category.html"
@@ -162,7 +162,7 @@ While most cause categories show similar median durations, fuel supply emergenci
   frameborder="0"
 ></iframe>
 
-Cold climate episodes show the highest mean outage duration (2,901 minutes) but affect fewer customers on average (1,586K) compared to normal conditions (2,666 minutes, 1,901K customers). This suggests that while cold weather events last longer, they typically impact smaller populations.
+**Cold climate episodes show the highest mean outage duration** (2,901 minutes) but **affect fewer customers** on average (1,586K) compared to normal conditions (2,666 minutes, 1,901K customers). This suggests that while **cold weather events last longer, they typically impact smaller populations.**
 
 <iframe
   src="assets/duration_by_month_climate_category.html"
@@ -173,7 +173,7 @@ Cold climate episodes show the highest mean outage duration (2,901 minutes) but 
 
 ### **Interesting Aggregates**
 
-Cold climate episodes show the highest mean outage duration (2,901 minutes) but affect fewer customers on average (1,586K) compared to normal conditions (2,666 minutes, 1,901K customers). This suggests that while cold weather events last longer, they typically impact smaller populations.
+**Cold climate episodes show the highest mean outage duration (2,901 minutes)** but **affect fewer customers** on average (1,586K) compared to normal conditions (2,666 minutes, 1,901K customers). This suggests that while cold weather events last longer, they typically impact smaller populations.
 
 
 | CLIMATE.CATEGORY   |   ('OUTAGE.DURATION', 'mean') |   ('OUTAGE.DURATION', 'median') |   ('OUTAGE.DURATION', 'std') |   ('CUSTOMERS.AFFECTED', 'mean') |
@@ -263,13 +263,13 @@ Based on our p-values, we reject both null hypotheses, concluding that the missi
  Analysis of CUSTOMERS.AFFECTED missingness revealed one dependent and one independent relationship:
 
 **Dependent (MAR) - OUTAGE.DURATION:**
-The missingness of CUSTOMERS.AFFECTED depends on OUTAGE.DURATION (p-value = 0.0010 < 0.05). The distribution plots and permutation test results show that outages with missing customer counts tend to have significantly different durations compared to those with recorded customer counts, with an observed test statistic of 1243.53 being far from what we'd expect by random chance.
+The missingness of **CUSTOMERS.AFFECTED depends on OUTAGE.DURATION (p-value = 0.0010 < 0.05)**. The distribution plots and permutation test results show that outages with missing customer counts tend to have significantly different durations compared to those with recorded customer counts, with **an observed test statistic of 1243.53** being far from what we'd expect by random chance.
 
 **Dependent (MAR) - MONTH:**
-The missingness of CUSTOMERS.AFFECTED also depends on MONTH (p-value = 0.0000 < 0.05), indicating strong evidence against MCAR. This suggests that the likelihood of missing customer count data varies significantly with different months of the year, perhaps due to seasonal patterns in reporting practices or outage characteristics.
+The missingness of **CUSTOMERS.AFFECTED also depends on MONTH (p-value = 0.0000 < 0.05)**. This suggests that the likelihood of missing customer count data varies significantly with different months of the year, perhaps due to seasonal patterns in reporting practices or outage characteristics.
 
 **Independent (MCAR) - TOTAL.PRICE:**
-TOTAL.PRICE shows characteristics of MCAR with only 1.43% missing values. Since electricity prices are set through regulatory processes independent of outage reporting systems, and missing values show no systematic patterns, the missingness mechanism appears random and unrelated to outage characteristics.
+**TOTAL.PRICE shows characteristics of MCAR with only 1.43% missing values**. Since electricity prices are set through regulatory processes independent of outage reporting systems, and missing values show no systematic patterns, the missingness mechanism appears random and unrelated to outage characteristics.
 
 These findings help inform how we approach missing values in our analyses of power outage patterns.
 
