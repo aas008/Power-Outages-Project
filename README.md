@@ -1,10 +1,43 @@
-# Data-Driven Analysis of Major U.S. Power Outages
+# **Data-Driven Analysis of Major U.S. Power Outages**
 
-by Aanya Sharma & Nishant Begani
+by **Aanya Sharma** & **Nishant Begani**
 
 ---
 
-# Introduction
+## Table of Contents
+- [**Data-Driven Analysis of Major U.S. Power Outages**](#data-driven-analysis-of-major-us-power-outages)
+  - [Table of Contents](#table-of-contents)
+- [**Introduction**](#introduction)
+- [**Data Cleaning and Exploratory Data Analysis**](#data-cleaning-and-exploratory-data-analysis)
+  - [**Data Cleaning Process**](#data-cleaning-process)
+  - [**EDA**](#eda)
+    - [**Univariate Analysis**](#univariate-analysis)
+    - [**Bivariate Analysis**](#bivariate-analysis)
+    - [**Interesting Aggregates**](#interesting-aggregates)
+- [**Assessment of Missingness**](#assessment-of-missingness)
+  - [**NMAR Analysis**](#nmar-analysis)
+  - [**Missisgness Dependency**](#missisgness-dependency)
+    - [1. **Highest Missing Percentages:**](#1-highest-missing-percentages)
+    - [2. **Missingness Dependency Tests**](#2-missingness-dependency-tests)
+  - [These findings help inform how we approach missing values in our analyses of power outage patterns.](#these-findings-help-inform-how-we-approach-missing-values-in-our-analyses-of-power-outage-patterns)
+- [**Hypothesis Testing**](#hypothesis-testing)
+- [**Framing a Prediction Problem**](#framing-a-prediction-problem)
+    - [**Prediction Problem and Type**](#prediction-problem-and-type)
+    - [**Response Variable**](#response-variable)
+    - [**Evaluation Metric**](#evaluation-metric)
+    - [**Features Excluded from Prediction**](#features-excluded-from-prediction)
+- [**Baseline Model**](#baseline-model)
+- [**Final Model**](#final-model)
+- [**Fairness Analysis**](#fairness-analysis)
+    - [**Groups Defined**:](#groups-defined)
+    - [**Reason for Choosing These Groups**:](#reason-for-choosing-these-groups)
+    - [**Evaluation Metric**:](#evaluation-metric-1)
+    - [**Hypotheses**:](#hypotheses)
+    - [**Methodology**:](#methodology)
+    - [**Results**:](#results)
+    - [**Conclusion**:](#conclusion)
+
+# **Introduction**
 
 What happens when the lights go out for over 50,000 people at once? Between January 2000 and July 2016, the United States experienced numerous major power outages that significantly impacted communities across the country. This analysis delves into a comprehensive dataset from the Department of Energy that tracks these major disruptions, defined as outages affecting at least 50,000 customers or causing an unplanned loss of at least 300 megawatts of energy.
 
@@ -38,9 +71,9 @@ Whether you're a utility company planning infrastructure improvements, an emerge
 
 ---
 
-# Data Cleaning and Exploratory Data Analysis
+# **Data Cleaning and Exploratory Data Analysis**
 
-## Data Cleaning Process
+## **Data Cleaning Process**
 
 Our initial dataset required several preprocessing steps to prepare it for analysis. Here are the key cleaning steps we performed:
 
@@ -86,7 +119,7 @@ Here's a glimpse of our cleaned DataFrame:
 |   2015 |       7 | Minnesota    | MRO           | East North Central | warm               |             1.2 | severe weather     | 2015-07-18 02:00:00 | 2015-07-19 07:00:00  |              1740 |              250 |               250000 |         10.43 |   5.97034e+06 |       2.67353e+06 | July    |
 
 
-## EDA
+## **EDA**
 
 ### **Univariate Analysis**
 
@@ -161,9 +194,9 @@ Cold climate episodes show the highest mean outage duration (2,901 minutes) but 
 
 --- 
 
-# Assessment of Missingness
+# **Assessment of Missingness**
 
-## NMAR Analysis 
+## **NMAR Analysis**
 
 In our examination of power outage data, we found that the column `CUSTOMERS.AFFECTED` (with 42.7% missing values) is likely NMAR (Not Missing At Random). This conclusion stems from understanding the data generation process rather than just the data itself:
 
@@ -178,7 +211,7 @@ To potentially make this column MAR (Missing At Random), we would need additiona
 2. Emergency response protocols for different types of outages
 3. Historical reporting compliance records
 
-## Missisgness Dependency 
+## **Missisgness Dependency** 
 
 We investigated the missingness patterns in our dataset, focusing on the `CUSTOMERS.AFFECTED` column which shows substantial missingness (42.7%). Our analysis tested whether this missingness depends on other variables in the dataset.
 
@@ -250,7 +283,7 @@ TOTAL.PRICE shows characteristics of MCAR with only 1.43% missing values. Since 
 These findings help inform how we approach missing values in our analyses of power outage patterns.
 ---
 
-# Hypothesis Testing
+# **Hypothesis Testing**
 
 **Null Hypothesis (H₀)**: There is no difference in the average outage duration between warm and cold climate episodes (any observed differences are due to random chance)
 **Alternative Hypothesis (H₁**): There is a significant difference in the average outage duration between warm and cold climate episodes
@@ -300,18 +333,18 @@ The overlapping histograms show the probability density for each climate categor
 
 ---
 
-# Framing a Prediction Problem 
+# **Framing a Prediction Problem** 
 
-### Prediction Problem and Type
+### **Prediction Problem and Type**
 The task is to predict the duration of a power outage, measured in minutes, using information available at the start of the outage. This is a regression problem because the target variable, `OUTAGE.DURATION`, is a continuous numerical value.
 
-### Response Variable
+### **Response Variable**
 The response variable is `OUTAGE.DURATION`, chosen because it is critical for emergency response planning and resource allocation. Accurately predicting the duration of an outage enables utility companies to optimize their operations and helps communities and emergency services prepare more effectively for extended outages.
 
-### Evaluation Metric
+### **Evaluation Metric**
 The model will be evaluated using **Root Mean Square Error (RMSE)**. RMSE is appropriate because it penalizes large errors more heavily, which is crucial for this application. For instance, underestimating a 24-hour outage as 1 hour is far more problematic than a slight overestimate of a shorter outage. Additionally, RMSE is expressed in minutes, making the results intuitive and directly comparable to the target variable.
 
-### Features Excluded from Prediction
+### **Features Excluded from Prediction**
 The model excludes variables that are either unknown or unavailable at the time of prediction, such as:  
 
 - `OUTAGE.RESTORATION`: Directly determines outage duration but is unknown when the outage begins.  
@@ -322,7 +355,7 @@ By adhering to these constraints, the model remains practical and realistic for 
 
 ---
 
-# Baseline Model 
+# **Baseline Model** 
 
 Our baseline model is a **regression model** predicting the duration of a power outage (measured in minutes) based on two features: `CLIMATE.REGION` (nominal) and `TOTAL.CUSTOMERS` (quantitative). These features were selected because `CLIMATE.REGION` captures differences in weather and climate conditions across regions, which may influence the length of outages, and `TOTAL.CUSTOMERS` provides an estimate of the scale of energy demand. The target variable was `OUTAGE.DURATION`, which measures the length of an outage.
 
@@ -332,7 +365,7 @@ The baseline model achieved a **Train RMSE of 5952.03** and a **Test RMSE of 611
 
 ---
 
-# Final Model 
+# **Final Model** 
 
 Our final model incorporates a more sophisticated preprocessing pipeline and an expanded set of features aimed at capturing the complex relationships in the data. The selected features were:
 
@@ -360,7 +393,7 @@ The **final models significantly improved over the baseline**, as they incorpora
 
 ---
 
-# Fairness Analysis
+# **Fairness Analysis**
 
 ### **Groups Defined**:
 - **Group X (Urban)**: Areas classified as urban in the dataset (e.g., densely populated regions).
@@ -387,6 +420,12 @@ To test fairness, we performed a **permutation test** with 1000 trials:
 - **p-value**: **0.1540**.
 - **Significance Level (α)**: **0.05**.
 
+<iframe
+  src="assets/fairness_dist.html"
+  width="840"
+  height="420"
+  frameborder="0"
+></iframe>
 
 ### **Conclusion**:
 - The **p-value (0.1540)** is greater than the significance level (α = 0.05), so we **fail to reject the null hypothesis**.
@@ -394,12 +433,5 @@ To test fairness, we performed a **permutation test** with 1000 trials:
 - While the observed RMSE difference suggests slightly better performance for Rural areas, this is likely due to random variation rather than systematic bias in the model.
 
 This analysis underscores the importance of rigorous fairness testing to ensure the model performs equitably across different demographic or geographic groups.
-
-<iframe
-  src="assets/fairness_dist.html"
-  width="640"
-  height="401"
-  frameborder="0"
-></iframe>
 
 ---
