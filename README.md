@@ -324,9 +324,39 @@ By adhering to these constraints, the model remains practical and realistic for 
 
 # Baseline Model 
 
+My baseline model is a regression model predicting the duration of a power outage (measured in minutes) based on two features: `CLIMATE.REGION` (nominal) and `TOTAL.CUSTOMERS` (quantitative). These features were selected because `CLIMATE.REGION` captures differences in weather and climate conditions across regions, which may influence the length of outages, and `TOTAL.CUSTOMERS` provides an estimate of the scale of energy demand. The target variable was `OUTAGE.DURATION`, which measures the length of an outage.
+
+For preprocessing, missing values in the features and target were dropped to ensure clean data. The categorical feature `CLIMATE.REGION` was encoded using one-hot encoding, and `TOTAL.CUSTOMERS` was standardized. No additional transformations or handling of outliers were performed.
+
+The baseline model achieved a **Train RMSE of 5952.03** and a **Test RMSE of 6116.95**, with **R² scores of 0.04 and 0.02** on the training and test sets, respectively. These results indicate that the model's ability to explain the variance in the target variable is very low, suggesting that additional features and improved preprocessing are necessary to enhance performance.
+
 ---
 
 # Final Model 
+
+The final model incorporates a more sophisticated preprocessing pipeline and an expanded set of features aimed at capturing the complex relationships in the data. The selected features were:
+
+- **MONTH_SIN, MONTH_COS (quantitative)**: Cyclic encodings of the month to capture seasonal trends in outages.
+- **OUTAGE.HOUR (quantitative)**: Represents the hour of the outage's start, potentially affecting response times and repair efficiency.
+- **CLIMATE_IMPACT (quantitative)**: Interaction term between `ANOMALY.LEVEL` and whether the climate condition is "normal," capturing the severity of weather events.
+- **INFRASTRUCTURE_SCALE (quantitative)**: Normalized product of `TOTAL.CUSTOMERS` and `TOTAL.SALES`, representing the scale of the energy infrastructure.
+- **ANOMALY_CUSTOMER_INTERACTION (quantitative)**: Interaction term between `ANOMALY.LEVEL` and `TOTAL.CUSTOMERS` to account for combined effects of weather anomalies and energy demand.
+- **CLIMATE.REGION (nominal)**: Encoded using one-hot encoding to account for regional differences.
+- **TOTAL.PRICE (quantitative)**: Represents economic factors affecting energy consumption.
+
+Outliers in the target variable (`OUTAGE.DURATION`) were handled using two strategies: Winsorization at the 95th percentile and log transformation to stabilize variance. GridSearchCV was employed to optimize the hyperparameters of a RandomForestRegressor, with the following results:
+
+1. **Log Transformation Model**: Achieved a **Train RMSE of 1.29** and **Test RMSE of 2.03** with **R² scores of 0.702 (train) and 0.305 (test)**. Log transformation effectively reduced skewness and improved performance.
+2. **Winsorization Model**: Achieved a **Train RMSE of 1889.29** and **Test RMSE of 2868.94** with **R² scores of 0.634 (train) and 0.184 (test)**. Winsorization helped manage outliers without altering the scale of the target variable.
+
+The **final models significantly improved over the baseline**, as they incorporated domain-specific features and addressed outliers, leading to more meaningful predictions. While the R² scores indicate modest improvements, the results suggest that additional exploration of feature engineering and advanced modeling techniques could further enhance performance.
+
+| Model              |   Train RMSE |   Test RMSE |   Train R² |   Test R² | Comments                                      |
+|:-------------------|-------------:|------------:|-----------:|----------:|:----------------------------------------------|
+| Baseline Model     |      5952.03 |     6116.95 |      0.04  |     0.02  | Basic linear regression with minimal features |
+| Log Transformation |         1.29 |        2.03 |      0.702 |     0.305 | Log-transformed target variable               |
+| Winsorization      |      1889.29 |     2868.94 |      0.634 |     0.184 | Capped extreme values at 95th percentile      |
+
 
 ---
 
