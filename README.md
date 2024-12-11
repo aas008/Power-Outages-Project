@@ -344,7 +344,7 @@ Our final model incorporates a more sophisticated preprocessing pipeline and an 
 - **CLIMATE.REGION (nominal)**: Encoded using one-hot encoding to account for regional differences.
 - **TOTAL.PRICE (quantitative)**: Represents economic factors affecting energy consumption.
 
-Outliers in the target variable (`OUTAGE.DURATION`) were handled using two strategies: Winsorization at the 95th percentile and log transformation to stabilize variance. GridSearchCV was employed to optimize the hyperparameters of a RandomForestRegressor, with the following results:
+Outliers in the target variable (`OUTAGE.DURATION`) were handled using two strategies: **Winsorization at the 95th percentile** and **log transformation to stabilize variance**. GridSearchCV was employed to optimize the hyperparameters of a RandomForestRegressor, with the following results:
 
 1. **Log Transformation Model**: Achieved a **Train RMSE of 1.29** and **Test RMSE of 2.03** with **R² scores of 0.702 (train) and 0.305 (test)**. Log transformation effectively reduced skewness and improved performance.
 2. **Winsorization Model**: Achieved a **Train RMSE of 1889.29** and **Test RMSE of 2868.94** with **R² scores of 0.634 (train) and 0.184 (test)**. Winsorization helped manage outliers without altering the scale of the target variable.
