@@ -394,3 +394,12 @@ To test fairness, we performed a **permutation test** with 1000 trials:
 - While the observed RMSE difference suggests slightly better performance for Rural areas, this is likely due to random variation rather than systematic bias in the model.
 
 This analysis underscores the importance of rigorous fairness testing to ensure the model performs equitably across different demographic or geographic groups.
+
+<iframe
+  src="assets/fairness_dist.html"
+  width="640"
+  height="401"
+  frameborder="0"
+></iframe>
+
+---
