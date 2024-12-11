@@ -32,7 +32,7 @@ What happens when the lights go out for over 50,000 people at once? Between Janu
 
 Our investigation centers around a critical question: **How do climate patterns and regional characteristics influence the severity of power outages, and can we predict their duration to improve emergency response planning?** Understanding these patterns is crucial for utility companies, emergency responders, and policymakers to better prepare for and mitigate the impact of future outages.
 
-The dataset, sourced from Purdue University's Laboratory for Advancing Sustainable Critical Infrastructure, contains 1,534 major outage events. For each event, we analyze several key variables:
+The dataset, sourced from Purdue University's Laboratory for Advancing Sustainable Critical Infrastructure, contains **1,534 major outage events**. For each event, we analyze several key variables:
 
 | Column | Description |
 |--------|-------------|
@@ -132,6 +132,7 @@ Severe weather dominates as the primary cause with around 700 incidents, while i
   frameborder="0"
 ></iframe>
 
+The distribution of the number of outages by each U.S. state.
 <iframe
   src="assets/geographic_dist_map.html"
   width="1000"
@@ -147,8 +148,8 @@ Most outages cluster in the lower ranges (under 20,000 minutes and affecting few
 
 <iframe
   src="assets/duration_vs_anomaly.html"
-  width="840"
-  height="421"
+  width="1000"
+  height="400"
   frameborder="0"
 ></iframe>
 
@@ -156,7 +157,7 @@ While most cause categories show similar median durations, fuel supply emergenci
 
 <iframe
   src="assets/duration_by_climate_category.html"
-  width="840"
+  width="1000"
   height="421"
   frameborder="0"
 ></iframe>
@@ -165,7 +166,7 @@ Cold climate episodes show the highest mean outage duration (2,901 minutes) but 
 
 <iframe
   src="assets/duration_by_month_climate_category.html"
-  width="840"
+  width="1000"
   height="421"
   frameborder="0"
 ></iframe>
