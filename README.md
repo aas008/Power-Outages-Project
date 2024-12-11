@@ -4,9 +4,9 @@ by **Aanya Sharma** & **Nishant Begani**
 
 ---
 
-## Table of Contents
+# **Table of Contents**
 - [**Data-Driven Analysis of Major U.S. Power Outages**](#data-driven-analysis-of-major-us-power-outages)
-  - [Table of Contents](#table-of-contents)
+- [**Table of Contents**](#table-of-contents)
 - [**Introduction**](#introduction)
 - [**Data Cleaning and Exploratory Data Analysis**](#data-cleaning-and-exploratory-data-analysis)
   - [**Data Cleaning Process**](#data-cleaning-process)
@@ -19,23 +19,12 @@ by **Aanya Sharma** & **Nishant Begani**
   - [**Missisgness Dependency**](#missisgness-dependency)
     - [1. **Highest Missing Percentages:**](#1-highest-missing-percentages)
     - [2. **Missingness Dependency Tests**](#2-missingness-dependency-tests)
-  - [These findings help inform how we approach missing values in our analyses of power outage patterns.](#these-findings-help-inform-how-we-approach-missing-values-in-our-analyses-of-power-outage-patterns)
 - [**Hypothesis Testing**](#hypothesis-testing)
 - [**Framing a Prediction Problem**](#framing-a-prediction-problem)
-    - [**Prediction Problem and Type**](#prediction-problem-and-type)
-    - [**Response Variable**](#response-variable)
-    - [**Evaluation Metric**](#evaluation-metric)
-    - [**Features Excluded from Prediction**](#features-excluded-from-prediction)
 - [**Baseline Model**](#baseline-model)
 - [**Final Model**](#final-model)
 - [**Fairness Analysis**](#fairness-analysis)
-    - [**Groups Defined**:](#groups-defined)
-    - [**Reason for Choosing These Groups**:](#reason-for-choosing-these-groups)
-    - [**Evaluation Metric**:](#evaluation-metric-1)
-    - [**Hypotheses**:](#hypotheses)
-    - [**Methodology**:](#methodology)
-    - [**Results**:](#results)
-    - [**Conclusion**:](#conclusion)
+
 
 # **Introduction**
 
@@ -158,8 +147,8 @@ Most outages cluster in the lower ranges (under 20,000 minutes and affecting few
 
 <iframe
   src="assets/duration_vs_anomaly.html"
-  width="640"
-  height="401"
+  width="840"
+  height="421"
   frameborder="0"
 ></iframe>
 
@@ -167,8 +156,8 @@ While most cause categories show similar median durations, fuel supply emergenci
 
 <iframe
   src="assets/duration_by_climate_category.html"
-  width="640"
-  height="401"
+  width="840"
+  height="421"
   frameborder="0"
 ></iframe>
 
@@ -176,8 +165,8 @@ Cold climate episodes show the highest mean outage duration (2,901 minutes) but 
 
 <iframe
   src="assets/duration_by_month_climate_category.html"
-  width="640"
-  height="401"
+  width="840"
+  height="421"
   frameborder="0"
 ></iframe>
 
@@ -254,6 +243,7 @@ We performed permutation tests to understand what factors the missingness of `CU
   height="550"
   frameborder="0"
 ></iframe>
+
   - **P-value**: 0.0010 (< 0.05)
 
   The permutation test visualization shows our observed test statistic (1243.53) is far from what we would expect under the null hypothesis, providing strong evidence for dependency. The distribution plots further illustrate how outage durations differ between cases where customer counts are missing versus reported.
@@ -281,6 +271,7 @@ The missingness of CUSTOMERS.AFFECTED also depends on MONTH (p-value = 0.0000 < 
 TOTAL.PRICE shows characteristics of MCAR with only 1.43% missing values. Since electricity prices are set through regulatory processes independent of outage reporting systems, and missing values show no systematic patterns, the missingness mechanism appears random and unrelated to outage characteristics.
 
 These findings help inform how we approach missing values in our analyses of power outage patterns.
+
 ---
 
 # **Hypothesis Testing**
@@ -303,15 +294,15 @@ You planned to use:
 With a p-value of 0.9067, which is much larger than our significance level (α = 0.05), **we fail to reject the null hypothesis**
 <iframe
   src="assets/hypothesis_distribution.html"
-  width="640"
-  height="401"
+  width="840"
+  height="421"
   frameborder="0"
 ></iframe>
 The empirical distribution of simulated differences shows our observed difference falls well within the range we would expect due to random chance. 
 <iframe
   src="assets/hypothesis_boxplot.html"
-  width="640"
-  height="401"
+  width="840"
+  height="421"
   frameborder="0"
 ></iframe>
 The box plots visually support this conclusion, showing similar distributions of outage durations between warm and cold climate episodes, with both categories having some extreme outliers
@@ -335,16 +326,16 @@ The overlapping histograms show the probability density for each climate categor
 
 # **Framing a Prediction Problem** 
 
-### **Prediction Problem and Type**
+**Prediction Problem and Type**
 The task is to predict the duration of a power outage, measured in minutes, using information available at the start of the outage. This is a regression problem because the target variable, `OUTAGE.DURATION`, is a continuous numerical value.
 
-### **Response Variable**
+**Response Variable**
 The response variable is `OUTAGE.DURATION`, chosen because it is critical for emergency response planning and resource allocation. Accurately predicting the duration of an outage enables utility companies to optimize their operations and helps communities and emergency services prepare more effectively for extended outages.
 
-### **Evaluation Metric**
+**Evaluation Metric**
 The model will be evaluated using **Root Mean Square Error (RMSE)**. RMSE is appropriate because it penalizes large errors more heavily, which is crucial for this application. For instance, underestimating a 24-hour outage as 1 hour is far more problematic than a slight overestimate of a shorter outage. Additionally, RMSE is expressed in minutes, making the results intuitive and directly comparable to the target variable.
 
-### **Features Excluded from Prediction**
+**Features Excluded from Prediction**
 The model excludes variables that are either unknown or unavailable at the time of prediction, such as:  
 
 - `OUTAGE.RESTORATION`: Directly determines outage duration but is unknown when the outage begins.  
@@ -395,27 +386,27 @@ The **final models significantly improved over the baseline**, as they incorpora
 
 # **Fairness Analysis**
 
-### **Groups Defined**:
+**Groups Defined**:
 - **Group X (Urban)**: Areas classified as urban in the dataset (e.g., densely populated regions).
 - **Group Y (Rural)**: Areas classified as rural in the dataset (e.g., sparsely populated regions).
 
-### **Reason for Choosing These Groups**:
+**Reason for Choosing These Groups**:
 Predicting **power outage duration** accurately for urban and rural areas is critical due to differing implications of outages. Urban areas, with a higher density of population and critical infrastructure, require quick restoration to prevent cascading effects. In contrast, rural areas often face logistical challenges and longer restoration times. Ensuring fairness across these groups supports equitable resource allocation by energy providers.
 
-### **Evaluation Metric**:
+**Evaluation Metric**:
 We used **Root Mean Squared Error (RMSE)** to evaluate fairness. RMSE reflects prediction errors in minutes, making it a practical metric for measuring model performance on outage duration predictions.
 
-### **Hypotheses**:
+**Hypotheses**:
 - **Null Hypothesis**: The model is fair; RMSE for Urban and Rural areas is roughly the same, with any observed differences due to random chance.
 - **Alternative Hypothesis**: The model is unfair; RMSE for Urban areas is significantly different from RMSE for Rural areas.
 
-### **Methodology**:
+**Methodology**:
 To test fairness, we performed a **permutation test** with 1000 trials:
 1. **Observed RMSE Difference**: The difference between the RMSE values for Urban and Rural groups in the test set.
 2. **Null Distribution**: Generated by shuffling Urban and Rural labels randomly and calculating RMSE differences for each trial.
 3. **p-value Calculation**: The proportion of permuted differences greater than or equal to the observed RMSE difference (in absolute value).
 
-### **Results**:
+ **Results**:
 - **Observed RMSE Difference**: **-0.2870** (Rural RMSE slightly lower than Urban RMSE).
 - **p-value**: **0.1540**.
 - **Significance Level (α)**: **0.05**.
@@ -427,7 +418,7 @@ To test fairness, we performed a **permutation test** with 1000 trials:
   frameborder="0"
 ></iframe>
 
-### **Conclusion**:
+**Conclusion**:
 - The **p-value (0.1540)** is greater than the significance level (α = 0.05), so we **fail to reject the null hypothesis**.
 - This indicates **no significant evidence of unfairness** in the model’s predictions for Urban and Rural areas.
 - While the observed RMSE difference suggests slightly better performance for Rural areas, this is likely due to random variation rather than systematic bias in the model.
